@@ -2,7 +2,7 @@
 
 Landing page de démonstration pour AllClean, un projet d'application de services à domicile : lavage de voiture, nettoyage de tapis et de couvertures, ménage. Le client décrit son besoin, les prestataires proposent leur prix et le client accepte l'offre qu'il préfère. Les prestataires, prix et notes affichés sont fictifs.
 
-**Démo en ligne :** (lien GitHub Pages à ajouter ici)
+**Démo en ligne :** (https://zineb1904.github.io/landing-allclean/)
 
 ## Contenu
 
