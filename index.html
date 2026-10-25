@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AllClean — Services à domicile, au prix que vous choisissez</title>
+<meta name="description" content="Lavage auto, nettoyage de tapis et couvertures, ménage : commandez à domicile et choisissez l'offre du prestataire qui vous convient.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sky:#eaf3ff; --ink:#0f1b2d; --coral:#ff5a4e; --blue:#2457f5; --white:#fff;
+  --muted:#4a5a72; --line:rgba(15,27,45,.14);
+  --display:"Familjen Grotesk",system-ui,sans-serif; --body:"Public Sans",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--ink);background:var(--sky);line-height:1.6;font-size:17px}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1140px;margin:0 auto;padding:0 20px}
+a{color:inherit}
+
+header.top{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
+.logo{font-family:var(--display);font-weight:700;font-size:1.35rem;text-decoration:none;letter-spacing:-.01em}
+.logo i{font-style:normal;color:var(--coral)}
+.top a.pill{background:var(--ink);color:#fff;text-decoration:none;padding:10px 18px;border-radius:999px;font-weight:600;font-size:.95rem}
+.top a.pill:hover{background:var(--blue)}
+
+.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center;padding:32px 0 80px}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(2.5rem,6vw,4.7rem);line-height:1;letter-spacing:-.035em}
+.lead{margin:20px 0 28px;max-width:46ch;color:var(--muted);font-size:1.1rem}
+.btn{display:inline-block;background:var(--coral);color:#fff;border:0;border-radius:999px;padding:15px 26px;font:inherit;font-weight:600;text-decoration:none;cursor:pointer}
+.btn:hover{background:#e84a3f}
+.btn.dark{background:var(--ink)}
+.btn.dark:hover{background:var(--blue)}
+.note{margin-top:14px;font-size:.92rem;color:var(--muted)}
+
+/* Démo des offres */
+.phone{background:var(--white);border-radius:26px;padding:22px;box-shadow:0 34px 60px -34px rgba(15,27,45,.55);border:1px solid var(--line)}
+.phone h2{font-family:var(--display);font-size:1.15rem;margin-bottom:12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.chips button{font:inherit;font-weight:600;font-size:.93rem;padding:9px 14px;border-radius:999px;border:1.5px solid var(--line);background:var(--white);color:var(--ink);cursor:pointer}
+.chips button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.req{background:var(--sky);border-radius:14px;padding:12px 14px;font-size:.95rem;margin-bottom:14px}
+.req b{font-family:var(--display);font-size:1.05rem}
+.offers{list-style:none;padding:0;display:grid;gap:10px;min-height:236px}
+.offer{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:12px;border:1.5px solid var(--line);border-radius:14px}
+.av{width:42px;height:42px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-family:var(--display);font-weight:700}
+.offer .who b{display:block;line-height:1.2}
+.offer .who span{font-size:.85rem;color:var(--muted)}
+.offer .px{text-align:right}
+.offer .px b{font-family:var(--display);font-size:1.25rem;display:block;line-height:1.1}
+.offer button{margin-top:4px;font:inherit;font-weight:600;font-size:.85rem;background:var(--coral);color:#fff;border:0;border-radius:999px;padding:6px 12px;cursor:pointer}
+.offer button:hover{background:#e84a3f}
+.offer.done{border-color:var(--blue);background:#f2f6ff}
+.status{margin-top:12px;min-height:1.5em;font-weight:600;color:var(--blue);font-size:.95rem}
+
+section{padding:76px 0}
+h2.title{font-family:var(--display);font-weight:700;font-size:clamp(1.9rem,4vw,2.9rem);line-height:1.05;letter-spacing:-.03em;max-width:20ch}
+.intro{margin-top:12px;color:var(--muted);max-width:56ch}
+
+/* Étapes : vraie séquence */
+.steps{counter-reset:s;display:grid;grid-template-columns:repeat(3,1fr);gap:36px;margin-top:38px;list-style:none;padding:0}
+.steps li{counter-increment:s;border-top:3px solid var(--ink);padding-top:16px}
+.steps li::before{content:counter(s);font-family:var(--display);font-weight:700;font-size:2.4rem;color:var(--coral);line-height:1}
+.steps h3{font-family:var(--display);font-size:1.3rem;margin:8px 0 6px}
+.steps p{color:var(--muted)}
+
+.services{margin-top:34px;border-top:2px solid var(--ink)}
+.srv{display:grid;grid-template-columns:1fr 2fr;gap:24px;padding:20px 0;border-bottom:1px solid var(--line)}
+.srv h3{font-family:var(--display);font-size:1.4rem}
+.srv p{color:var(--muted)}
+
+.pro{background:var(--ink);color:#fff}
+.pro h2.title{color:#fff}
+.pro .intro{color:#c3cee0}
+.pro ul{margin-top:26px;display:grid;gap:10px;list-style:none;padding:0;max-width:52ch}
+.pro li::before{content:"✓ ";color:var(--coral);font-weight:700}
+
+.join{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:start}
+form{display:grid;gap:16px}
+label{display:grid;gap:6px;font-weight:600;font-size:.95rem}
+input,select{font:inherit;padding:13px 14px;border:1.5px solid var(--line);border-radius:12px;background:#fff;color:var(--ink)}
+input:focus,select:focus{border-color:var(--blue);outline:3px solid rgba(36,87,245,.22)}
+#msg{min-height:1.5em;font-weight:600;color:var(--blue)}
+footer{background:var(--ink);color:#b9c6da;padding:26px 0;font-size:.92rem}
+footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+
+@media (max-width:860px){
+  .hero,.join{grid-template-columns:1fr;gap:34px}
+  .steps{grid-template-columns:1fr;gap:26px}
+  .srv{grid-template-columns:1fr;gap:4px}
+  section{padding:54px 0}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <a class="logo" href="#">All<i>Clean</i></a>
+    <a class="pill" href="#liste">Me prévenir du lancement</a>
+  </header>
+
+  <div class="hero">
+    <div>
+      <h1>Vous demandez. Ils proposent leur prix.</h1>
+      <p class="lead">Lavage de voiture, nettoyage de tapis et de couvertures, ménage : commandez à domicile, comparez les offres des prestataires près de chez vous et acceptez celle qui vous convient.</p>
+      <a class="btn" href="#liste">Rejoindre la liste d'attente</a>
+      <p class="note">Bientôt à Marrakech. Essayez la démonstration à droite.</p>
+    </div>
+
+    <div class="phone" aria-label="Démonstration des offres">
+      <h2>Que voulez-vous faire nettoyer ?</h2>
+      <div class="chips" id="chips"></div>
+      <div class="req" id="req"></div>
+      <ul class="offers" id="offers" aria-live="polite"></ul>
+      <p class="status" id="status" role="status"></p>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2 class="title">Commander prend une minute</h2>
+    <ol class="steps">
+      <li><h3>Décrivez votre besoin</h3><p>Choisissez le service, l'adresse et l'horaire qui vous arrangent.</p></li>
+      <li><h3>Recevez des offres</h3><p>Plusieurs prestataires proposent leur prix. Vous voyez le tarif, le délai et la note de chacun.</p></li>
+      <li><h3>Acceptez et c'est réservé</h3><p>Le prestataire se déplace chez vous. Vous réglez une fois le service terminé.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <h2 class="title">Des services du quotidien, chez vous</h2>
+    <div class="services">
+      <div class="srv"><h3>Lavage de voiture</h3><p>Lavage intérieur et extérieur devant chez vous ou au bureau, sans faire la queue.</p></div>
+      <div class="srv"><h3>Tapis et couvertures</h3><p>Ramassage, nettoyage en profondeur et livraison de vos tapis, couvertures et couettes.</p></div>
+      <div class="srv"><h3>Ménage à domicile</h3><p>Une aide ménagère pour quelques heures ou toute la journée, selon la taille du logement.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="pro">
+  <div class="wrap">
+    <h2 class="title">Prestataire : fixez votre prix</h2>
+    <p class="intro">Recevez des demandes près de chez vous et proposez votre tarif. Vous choisissez les missions que vous acceptez.</p>
+    <ul>
+      <li>Vous fixez le prix de chaque service</li>
+      <li>Des demandes dans votre quartier</li>
+      <li>Une petite commission uniquement quand le service est réalisé</li>
+    </ul>
+    <p style="margin-top:26px"><a class="btn" href="#liste">Je veux proposer mes services</a></p>
+  </div>
+</section>
+
+<section id="liste">
+  <div class="wrap join">
+    <div>
+      <h2 class="title">Soyez prévenu du lancement</h2>
+      <p class="intro">Laissez votre e-mail : nous vous écrivons à l'ouverture dans votre ville.</p>
+    </div>
+    <form id="form" novalidate>
+      <label>Adresse e-mail <input name="email" type="email" required autocomplete="email"></label>
+      <label>Ville
+        <select name="ville"><option>Marrakech</option><option>Casablanca</option><option>Rabat</option><option>Autre ville</option></select>
+      </label>
+      <label>Vous êtes
+        <select name="role"><option>Client</option><option>Prestataire</option></select>
+      </label>
+      <button class="btn dark" type="submit">Je m'inscris</button>
+      <p id="msg" role="status"></p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>AllClean</span>
+    <span>Page de démonstration d'un projet : prestataires, prix et notes fictifs.</span>
+  </div>
+</footer>
+
+<script>
+const services={
+ "Lavage auto":{req:"Lavage complet, berline, devant chez moi",range:[60,150],unit:"MAD"},
+ "Tapis et couvertures":{req:"2 tapis et 1 couverture, ramassage inclus",range:[180,420],unit:"MAD"},
+ "Ménage":{req:"Appartement 3 pièces, 4 heures",range:[200,380],unit:"MAD"}
+};
+const people=[["Hamid","4,8",5],["Salma","4,9",8],["Youssef","4,6",12],["Khadija","4,7",7]];
+const chips=document.getElementById("chips"),req=document.getElementById("req"),list=document.getElementById("offers"),status=document.getElementById("status");
+let current=null;
+
+Object.keys(services).forEach(k=>{
+  const b=document.createElement("button");b.type="button";b.textContent=k;b.setAttribute("aria-pressed","false");
+  b.onclick=()=>pick(k);chips.appendChild(b);
+});
+
+function pick(k){
+  current=k;status.textContent="";
+  [...chips.children].forEach(c=>c.setAttribute("aria-pressed",c.textContent===k));
+  const s=services[k];
+  req.innerHTML="<b>Votre demande</b><br>"+s.req;
+  const [lo,hi]=s.range;
+  const offers=people.slice(0,3).map(p=>{
+    const px=Math.round((lo+Math.random()*(hi-lo))/10)*10;
+    return {n:p[0],r:p[1],t:p[2],px};
+  }).sort((a,b)=>a.px-b.px);
+  list.innerHTML="";
+  offers.forEach(o=>{
+    const li=document.createElement("li");li.className="offer";
+    li.innerHTML=`<div class="av">${o.n[0]}</div><div class="who"><b>${o.n}</b><span>★ ${o.r} · arrive dans ${o.t} min</span></div><div class="px"><b>${o.px} MAD</b><button type="button">Accepter</button></div>`;
+    li.querySelector("button").onclick=()=>{
+      [...list.children].forEach(x=>x.classList.remove("done"));
+      li.classList.add("done");
+      status.textContent=o.n+" arrive dans "+o.t+" minutes pour "+o.px+" MAD. Ceci est une démonstration.";
+    };
+    list.appendChild(li);
+  });
+}
+pick("Lavage auto");
+
+document.getElementById("form").addEventListener("submit",e=>{
+  e.preventDefault();
+  const f=e.target,m=document.getElementById("msg");
+  if(!f.email.value||!f.email.validity.valid){m.style.color="#b3261e";m.textContent="Entrez une adresse e-mail valide.";return}
+  m.style.color="";m.textContent="Merci ! Ceci est une démonstration : aucune adresse n'est enregistrée.";
+  f.reset();
+});
+</script>
+</body>
+</html>
